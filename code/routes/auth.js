@@ -11,6 +11,7 @@ router.get("/signup",(req,res,next)=>{
 })
 
 router.post("/signup",(req,res,next)=>{
+
   const username= req.body.username;
   const password= req.body.password;
   
@@ -18,8 +19,11 @@ router.post("/signup",(req,res,next)=>{
     res.render("/views/auth/signup.hbs",{
       errorMessage:"You have to fill in both password and username!"
   })
+
   return;
+
   }
+
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass= bcrypt.hashSync(password,salt);
 
@@ -40,8 +44,6 @@ router.post("/signup",(req,res,next)=>{
   })
 })
 
-
-
 router.get("/login",(req,res,next)=>{
   res.render("../views/auth/login.hbs")
 })
@@ -55,7 +57,7 @@ router.post("/login",(req,res,next)=>{
     return;
   }
 
-  User.findOne({username:username})
+  User.findOne({username: username})
   .then(user=>{
       if(!user){
         res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"})
