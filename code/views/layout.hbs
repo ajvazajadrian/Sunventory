@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    {{!-- changing title --}}
+      {{!-- <script>
+		focusTitle = $('head title').text(); // Originalen Title speichern
+		$(window).on('blur focus', function(e) {
+			var prevType = $(this).data('prevType'); 
+			if (prevType != e.type) {
+				switch (e.type) {
+					case 'blur':
+						var i=0;
+						tab = setInterval(function() {
+							switch(i++%2) { // Die Zahl hinter dem % muss mit der Anzahl der Cases übereinstimmen
+								case 0: document.title = 'Come Back'; // Erste Anzeige im Tab
+								break;
+								case 1: document.title = 'I´m hungry :('; // Zweite Anzeige im Tab
+							}
+						}, 1000); // Zeit zwischen dem Wechsel der Anzeigen
+					break;
+					case 'focus': 
+					clearInterval(tab);
+					document.title = focusTitle; // Originalen Title einsetzen
+					break;
+				}
+			}
+			$(this).data('prevType', e.type);
+		});
+	</script> --}}
+    <title>Lemzatory</title>
 </head>
 <body>
-
+    {{> infoBar}}
+    <div class="container">
+    {{> nav}}
   {{{body}}}
+  </div>
+  
+<script src="javascripts/script.js"></script>
 
-  <script src="/javascripts/script.js"></script>
 </body>
 </html>

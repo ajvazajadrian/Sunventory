@@ -1,0 +1,24 @@
+
+<nav class="overlay"> 
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/"><img id='logoMax' src="./images/logoSunventory.png" alt="sunventory"></a>
+    <ul class="overlay-content">
+      <li class="link"><a href='#'>About</a></li>
+      <li class="link"><a href='#'>Services</a></li>
+      <li class="link"><a href='#'>Pricing</a></li>
+      <li class="link"><a href='#'>Team</a></li>
+      <li class="link"><a href='#'>Contact</a></li>
+      
+      {{!-- <li id='signIn'><a id="white" href='#'>Sign In</a></li> --}}
+    </ul>
+   
+    <button onclick="location.href='/signin'" id="maxSignIn"> Sign In</button>
+    
+      
+
+  </nav>
+<div class="minMenu">
+ <span id="hamburger" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+ <a href="/"><img id='logoMin' src="./images/logoSunventory.png" alt="sunventory"></a>
+ <button  onclick="location.href='/signin'" id="minSignIn"> Sign In</button>
+ </div>

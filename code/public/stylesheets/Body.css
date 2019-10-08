@@ -1,0 +1,14 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font: 14px Roboto, sans-serif;
+  }
+  
+  .container{
+    max-width: 900px;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+  }
+  
+  
