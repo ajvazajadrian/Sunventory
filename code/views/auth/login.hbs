@@ -1,9 +1,21 @@
-<form action ="/login" method="POST">
 
-<input name="username" type ="text" class="input" placeholder="username">
-<input name="password"type ="password" class="input" placeholder="password">
-<button type ="submit">Login</button>
+  		<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+
+<div class="inputBox">
+<form class="inputForm" action ="/login" method="POST">
+{{!-- <input name="username" type ="text" class="input" placeholder="Username"> --}}
+<div class="ui icon input">
+  <input name="username"type ="text" placeholder="Username">
+  <i class="user icon"></i>
+</div>
+{{!-- ********** --}}
+<div class="ui icon input">
+  <input name="password"type ="password" placeholder="Password">
+  <i class="lock icon"></i>
+</div>
+<button class="buttonBlack" type ="submit">Login</button>
 </form>
+</div>
 
 {{#if errorMessage}}
 <p class="errrorMessage">{{errorMessage}}</p>
