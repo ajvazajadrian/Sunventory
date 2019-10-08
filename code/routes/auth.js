@@ -58,7 +58,7 @@ router.post("/login",(req,res,next)=>{
   }
 
   User.findOne({username: username})
-  .then(user=>{
+    .then(user=>{
       if(!user){
         res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"})
       }
