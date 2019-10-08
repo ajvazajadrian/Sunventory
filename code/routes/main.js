@@ -34,5 +34,8 @@ router.post("/create-item",(req,res,next)=>{
   
 })
 
+router.get("/updateItem",(req,res,next)=>{
+    res.render("../views/update-product.hbs")
+})
 
 module.exports=router;
