@@ -1,8 +1,295 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font: 14px Roboto, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.container{
+  max-width: 900px;
+  margin: auto;
+  align-content: center;
+  text-align: center;
 }
+.infoBarBox{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: black;
+  }
+.main {
+  margin: auto;
+  max-width: 90%;
+}
+
+.minMenu{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+#mainText{
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#titleBackground{
+  display: flex;
+  justify-content: center;
+}
+
+#mainTitle{
+  font-size: 2.5rem;
+  line-height: 2rem;
+  background-color: #fbe0dc;
+  transform: skew(14deg, 0deg);
+  font-style: italic;
+  width: 100%;
+  
+}
+
+#cook{
+  max-width: 70vw;
+}
+
+//signIn
+
+
+@media(max-width: 800px){
+  // BlackTopBar
+  .infoBar{
+    font-size: 0.8rem;
+    display: flex;
+    background: black;
+    color: white;
+    justify-content: center;
+    line-height: 1rem;
+    text-align: center;
+    width: 90%;
+    }
+    #hand {
+      width: 20px;
+      height: 20px;
+      padding-right: 2px;
+      padding-top: 15px;
+    }
+    #ironHackInfo a{
+      color: white;
+      font-weight: bold;
+    }
+    //nav
+  .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(0,0,0);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+    #maxSignIn {
+      display: none;
+    }
+    
+    .overlay-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      
+      text-decoration: none;
+      list-style-type: none;
+    }
+    
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 36px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    .link {
+      width: 80%;
+    }
+    
+    .overlay a:hover, .overlay a:focus {
+      color: white;
+    }
+    
+    .overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+    }
+    #logoMax{
+      display: none;
+    }
+    #logoMin{
+      width: 60px;
+  padding-top: 10px;
+  margin-left: 60px;
+    }
+  #minSignIn{
+    font-size: 0.9rem;
+    width: 80px;
+    height: 25px;
+    border-radius: 4px;
+    background-color: black;
+    color: white;    
+    cursor: pointer;
+    right: 0px;
+  }
+  }
+/* ************** */
+
+
+
+
+@media(min-width: 801px){
+
+  // BlackTopBar
+  .infoBar{
+    font-size: 0.8rem;
+    display: flex;
+    background: black;
+    color: white;
+    justify-content: center;
+    line-height: 0px;
+    text-align: center;
+  }
+  #ironHackInfo a{
+    color: white;
+    font-weight: bold;
+  }
+
+  #hand {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+    padding-top: 4px;
+  }
+
+  // nav
+#logoMax {
+  width: 80px;
+  padding-top: 10px;
+}
+#logoMin{
+  display: none;
+}
+
+.closebtn{
+  display: none;
+}
+
+
+nav {
+  width: 100%;
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between
+
+}
+nav a {
+  color: black;
+  text-decoration: none;
+  
+}
+/* button  */
+#maxSignIn{
+  font-size: 1rem;
+  width: 200px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: black;
+  color: white;    
+  cursor: pointer;
+}
+#maxSignIn:focus{
+  outline:0;
+}
+
+#minSignIn{
+  display: none;
+}
+
+
+nav ul{
+  width: 100%;
+  list-style:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+ nav li {
+     margin: 20px;
+     font-size: 1.15em;
+     font-weight: 300;
+ }
+ nav li::after{
+background: none repeat scroll 0 0 transparent;
+bottom: 0;
+content: "";
+display: block;
+height: 2px;
+left: 50%;
+
+background: black;
+transition: width 0.3s ease 0s, left 0.3s ease 0s;
+width: 0;
+ }
+
+ nav li:hover::after{
+  width: 100%; 
+  left: 0; 
+ }
+ #hamburger {
+  display: none;
+}
+.container{
+  max-width: 1140px;
+  margin: auto;
+
+}
+
+
+// Header
+
+.main {
+margin: auto;
+max-width: 95%;
+line-height: 3rem;
+}
+
+#cook{
+width: 80%;
+}
+#titleBackground{
+display: flex;
+justify-content: center;
+}
+#mainTitle{
+font-size: 3rem;
+line-height: 2rem;
+background-color: #fbe0dc;
+transform: skew(14deg, 0deg);
+font-style: italic;
+width: 50%;
+
+
+}
+
+#mainText{
+font-weight: 300;
+font-size: 2rem;
+}
+}
+

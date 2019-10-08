@@ -1,0 +1,155 @@
+@media(max-width: 800px){
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      #maxSignIn {
+        display: none;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        
+        text-decoration: none;
+        list-style-type: none;
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      .link {
+        width: 80%;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: white;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+      }
+      #logoMax{
+        display: none;
+      }
+      #logoMin{
+        width: 60px;
+    padding-top: 10px;
+    margin-left: 60px;
+      }
+    #minSignIn{
+      font-size: 0.9rem;
+      width: 80px;
+      height: 25px;
+      border-radius: 4px;
+      background-color: black;
+      color: white;    
+      cursor: pointer;
+      right: 0px;
+    }
+    }
+/* ************** */
+
+
+
+
+@media(min-width: 801px){
+#logoMax {
+    width: 80px;
+    padding-top: 10px;
+  }
+  #logoMin{
+    display: none;
+  }
+
+  .closebtn{
+    display: none;
+  }
+  
+
+  nav {
+    width: 100%;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between
+  
+  }
+  nav a {
+    color: black;
+    text-decoration: none;
+    
+  }
+/* button  */
+  #maxSignIn{
+    font-size: 1rem;
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: black;
+    color: white;    
+    cursor: pointer;
+  }
+  #maxSignIn:focus{
+    outline:0;
+  }
+
+  #minSignIn{
+    display: none;
+  }
+ 
+  
+  nav ul{
+    width: 100%;
+    list-style:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+   nav li {
+       margin: 20px;
+       font-size: 1.15em;
+       font-weight: 300;
+   }
+   nav li::after{
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+   }
+
+   nav li:hover::after{
+    width: 100%; 
+    left: 0; 
+   }
+   #hamburger {
+    display: none;
+}
+}
+

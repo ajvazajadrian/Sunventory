@@ -32,7 +32,7 @@ router.post("/signup",(req,res,next)=>{
       return;
     }else{
       User.create({username:username,password:hashPass});
-      res.redirect("/login")
+      res.redirect("/signin")
     }
   })
   .catch(err=>{
@@ -42,15 +42,15 @@ router.post("/signup",(req,res,next)=>{
 
 
 
-router.get("/login",(req,res,next)=>{
-  res.render("../views/auth/login.hbs")
+router.get("/signin",(req,res,next)=>{
+  res.render("../views/auth/signin.hbs")
 })
 
-router.post("/login",(req,res,next)=>{
+router.post("/signin",(req,res,next)=>{
   const username=req.body.username;
   const password= req.body.password;
   if(username===""||password===""){
-    res.render("../views/auth/login.hbs",{errorMessage:"You have to enter both password and username!"
+    res.render("../views/auth/signin.hbs",{errorMessage:"You have to enter both password and username!"
   })
     return;
   }
@@ -58,14 +58,14 @@ router.post("/login",(req,res,next)=>{
   User.findOne({username:username})
   .then(user=>{
       if(!user){
-        res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"})
+        res.render("../views/auth/signin.hbs",{errorMessage:"Wrong username or password"})
       }
 
         if(bcrypt.compareSync(password,user.password)){
           req.session.currentUser=user;
           res.redirect("/dash")
         }else{
-          res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"});
+          res.render("../views/auth/signin.hbs",{errorMessage:"Wrong username or password"});
           return;
         }
   })

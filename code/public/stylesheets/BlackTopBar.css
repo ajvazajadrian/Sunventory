@@ -1,0 +1,50 @@
+.infoBarBox{
+display: flex;
+justify-content: center;
+width: 100vw;
+background-color: black;
+}
+@media(max-width: 800px){
+.infoBar{
+font-size: 0.8rem;
+display: flex;
+background: black;
+color: white;
+justify-content: center;
+line-height: 1rem;
+text-align: center;
+width: 90%;
+}
+#hand {
+  width: 20px;
+  height: 20px;
+  padding-right: 2px;
+  padding-top: 15px;
+}
+#ironHackInfo a{
+  color: white;
+  font-weight: bold;
+}}
+
+@media(min-width: 800px){
+  .infoBar{
+    font-size: 0.8rem;
+    display: flex;
+    background: black;
+    color: white;
+    justify-content: center;
+    line-height: 0px;
+    text-align: center;
+  }
+  #ironHackInfo a{
+    color: white;
+    font-weight: bold;
+  }
+
+  #hand {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+    padding-top: 4px;
+  }
+}
