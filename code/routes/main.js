@@ -4,6 +4,7 @@ const mongoose= require("mongoose")
 
 const foodItem=require("../models/foodItems");
 
+const User=require("../models/user")
 
 
 router.get("/dash",(req,res,next)=>{
@@ -14,10 +15,7 @@ router.get("/dash",(req,res,next)=>{
 router.get("/inventory",(req,res,next)=>{
 
   const user = req.session.currentUser;
-  
-  user.foodItems.populate("foodItems").exec((foodItems)=>{
-    res.render("../views/inventory.hbs",{foodItems:foodItems})
-  })
+
 
 })
 router.get("/create-item",(req,res,next)=>{
@@ -30,8 +28,13 @@ router.post("/create-item",(req,res,next)=>{
     const expiryDate= req.body.expiryDate;
     
     foodItem.create({name:name,dateOfPurchase:dateOfPurchase, expiryDate:expiryDate})
-    .then(()=>{
-      res.redirect("/inventory")
+    .then((food)=>{
+      User.findByIdAndUpdate(req.session.currentUser._id,{$push:{foodItems:food._id}},{new:true})
+      .then((updatedUser)=>{
+        debugger
+        console.log(updatedUser)
+        res.redirect("/create-item")
+      })
     })
     .catch(err=>{
       console.log(err)
