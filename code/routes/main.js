@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-
+const mongoose= require("mongoose")
 
 const foodItem=require("../models/foodItems");
 
@@ -12,8 +12,13 @@ router.get("/dash",(req,res,next)=>{
 })
 
 router.get("/inventory",(req,res,next)=>{
+
   const user = req.session.currentUser;
-    res.render("../views/inventory.hbs",{user})
+  
+  user.foodItems.populate("foodItems").exec((foodItems)=>{
+    res.render("../views/inventory.hbs",{foodItems:foodItems})
+  })
+
 })
 router.get("/create-item",(req,res,next)=>{
   res.render("create-item")
