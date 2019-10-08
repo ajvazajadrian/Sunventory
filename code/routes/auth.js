@@ -11,6 +11,7 @@ router.get("/signup",(req,res,next)=>{
 })
 
 router.post("/signup",(req,res,next)=>{
+
   const username= req.body.username;
   const password= req.body.password;
   
@@ -18,8 +19,11 @@ router.post("/signup",(req,res,next)=>{
     res.render("/views/auth/signup.hbs",{
       errorMessage:"You have to fill in both password and username!"
   })
+
   return;
+
   }
+
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass= bcrypt.hashSync(password,salt);
 
@@ -32,7 +36,7 @@ router.post("/signup",(req,res,next)=>{
       return;
     }else{
       User.create({username:username,password:hashPass});
-      res.redirect("/signin")
+      res.redirect("/login")
     }
   })
   .catch(err=>{
@@ -40,32 +44,30 @@ router.post("/signup",(req,res,next)=>{
   })
 })
 
-
-
-router.get("/signin",(req,res,next)=>{
-  res.render("../views/auth/signin.hbs")
+router.get("/login",(req,res,next)=>{
+  res.render("../views/auth/login.hbs")
 })
 
-router.post("/signin",(req,res,next)=>{
+router.post("/login",(req,res,next)=>{
   const username=req.body.username;
   const password= req.body.password;
   if(username===""||password===""){
-    res.render("../views/auth/signin.hbs",{errorMessage:"You have to enter both password and username!"
+    res.render("../views/auth/login.hbs",{errorMessage:"You have to enter both password and username!"
   })
     return;
   }
 
-  User.findOne({username:username})
+  User.findOne({username: username})
   .then(user=>{
       if(!user){
-        res.render("../views/auth/signin.hbs",{errorMessage:"Wrong username or password"})
+        res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"})
       }
 
         if(bcrypt.compareSync(password,user.password)){
           req.session.currentUser=user;
           res.redirect("/dash")
         }else{
-          res.render("../views/auth/signin.hbs",{errorMessage:"Wrong username or password"});
+          res.render("../views/auth/login.hbs",{errorMessage:"Wrong username or password"});
           return;
         }
   })
