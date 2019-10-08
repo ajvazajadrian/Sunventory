@@ -35,7 +35,7 @@ router.post("/signup",(req,res,next)=>{
       })
       return;
     }else{
-      User.create({username:username,password:hashPass});
+      User.create({username:username,password:hashPass})
       res.redirect("/login")
     }
   })
