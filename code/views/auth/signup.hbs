@@ -1,10 +1,20 @@
-<form action ="/signup" method="POST">
 
-<input name="username" type ="text" class="input" placeholder="username">
-<input name="password"type ="password" class="input" placeholder="password">
-<button type ="submit">SignUp</button>
+<div class="inputBox">
+<form class="inputForm" action ="/signup" method="POST">
+<div class="fake-input">
+    <input class="input" name="username"type ="text" placeholder="Username">
+    <input class="input" name="password"type ="text" placeholder="Password">
+    <img id="inputLock" src="images/inputLock.png" width=20/>
+</div>
+</div>
+
+<button class="buttonBlack" type ="submit">Sign up</button>
 </form>
+
+<h5 class="registerText">Already have an account?  <a href="/login">Log in</a> </h5>
+
 
 {{#if errorMessage}}
 <p class="errrorMessage">{{errorMessage}}</p>
 {{/if}}
+

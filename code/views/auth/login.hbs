@@ -1,22 +1,31 @@
 {{!-- I have imported this here until I find a better solution to resolve the conflict between the css files. --}}
-  		<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+
+{{!-- <div class="inputBox">
+<form class="inputForm" action ="/login" method="POST">
+  <input class="input" name="username"type ="text" placeholder="Username">
+  <input class="input" name="password"type ="password" placeholder="Password">
+  <img id="inputLock" src="images/inputLock.png" width=25/>
+</div> --}}
 
 <div class="inputBox">
 <form class="inputForm" action ="/login" method="POST">
-{{!-- <input name="username" type ="text" class="input" placeholder="Username"> --}}
-<div class="ui icon input">
-  <input name="username"type ="text" placeholder="Username">
-  <i class="user icon"></i>
+<div class="fake-input">
+    <input class="input" name="username"type ="text" placeholder="Username">
+    <input class="input" name="password"type ="text" placeholder="Password">
+    <img id="inputLock" src="images/inputLock.png" width=20/>
 </div>
-{{!-- ********** --}}
-<div class="ui icon input">
-  <input name="password"type ="password" placeholder="Password">
-  <i class="lock icon"></i>
 </div>
+
 <button class="buttonBlack" type ="submit">Login</button>
 </form>
-</div>
+
+<h5 class="registerText">New user? <a href="/signup">Create account</a> </h5>
+
 
 {{#if errorMessage}}
 <p class="errrorMessage">{{errorMessage}}</p>
 {{/if}}
+
+{{!-- <script>
+   onLoad="setbackground()
+</script> --}}

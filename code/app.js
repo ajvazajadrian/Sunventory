@@ -59,10 +59,10 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
+// we create a variable in locals "currentUser" and use the information of session.currentUsser
 app.use((req,res,next)=>{
   if(req.session.currentUser){
-    app.locals.currentUser=req.session.currentUser
+    app.locals.currentUser = req.session.currentUser
   }else{
     delete app.locals.currentUser
   }

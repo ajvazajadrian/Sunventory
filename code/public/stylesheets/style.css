@@ -49,13 +49,24 @@ body {
   justify-content: center; }
 
 .inputForm {
+  position: relative;
   width: 70%; }
 
 .input {
-  width: 100%;
+  font-size: 1rem;
+  height: 40px;
+  padding-left: 20px;
   display: block;
   margin-bottom: 3rem;
-  border-radius: 10px; }
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  border: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box; }
+
+.input:focus {
+  outline-color: black; }
 
 .buttonBlack {
   font-size: 1rem;
@@ -67,12 +78,27 @@ body {
 
 #inputLock img {
   position: absolute;
-  top: 2000px;
+  top: 2px;
   right: 5px; }
 
-#inputLock {
-  margin-top: 110px;
-  margin-right: 10px; }
+.fake-input {
+  position: relative; }
+
+.fake-input input {
+  border: 1px solid #d8d8d8;
+  background: white;
+  display: block;
+  box-sizing: border-box; }
+
+.fake-input img {
+  position: absolute;
+  top: 95px;
+  right: 5px; }
+
+.registerText {
+  margin-top: 30px;
+  font-size: 0.86rem;
+  font-weight: 300; }
 
 @media (max-width: 800px) {
   .infoBar {
@@ -218,6 +244,9 @@ body {
   .container {
     max-width: 1140px;
     margin: auto; }
+  .inputForm {
+    position: relative;
+    width: 35%; }
   .main {
     margin: auto;
     max-width: 95%;
