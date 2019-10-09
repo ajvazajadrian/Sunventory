@@ -6,8 +6,9 @@
   <input class="input" name="password"type ="password" placeholder="Password">
   <img id="inputLock" src="images/inputLock.png" width=25/>
 </div> --}}
-
+  <img id="fingerprint" src="images/fingerprint.png">
 <div class="inputBox">
+
 <form class="inputForm" action ="/login" method="POST">
 <div class="fake-input">
     <input class="input" name="username"type ="text" placeholder="Username">
@@ -16,14 +17,27 @@
 </div>
 </div>
 
-<button class="buttonBlack" type ="submit">Login</button>
+<button id="buttonBlack" type ="submit">Log in</button>
 </form>
 
 <h5 class="registerText">New user? <a href="/signup">Create account</a> </h5>
 
 
 {{#if errorMessage}}
+<div class="errorBox">
+<div class="errorText">
 <p class="errrorMessage">{{errorMessage}}</p>
+</div>
+</div>
+<script>
+
+  let button = document.getElementById('buttonBlack');
+  button.id = "redError";
+
+setTimeout(function(){ 
+  button.id = "buttonBlack"
+   }, 700)
+</script>
 {{/if}}
 
 {{!-- <script>
