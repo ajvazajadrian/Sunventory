@@ -13,8 +13,34 @@ router.get("/dash",(req,res,next)=>{
 })
 
 router.get("/inventory",(req,res,next)=>{
+User.findById(req.session.currentUser._id)
+.populate("foodItems")
+.then(user=>{
+  debugger
+  res.render("../views/inventory.hbs",{user})
+})
 
-  const user = req.session.currentUser;
+.catch(err=>{
+  console.log(err)
+})
+  // // const user = req.session.currentUser;
+  // // const foodItems=user.foodItems
+  // // const foodItemsContainer=[]
+  // // foodItems.forEach(element => {
+  // //     foodItem.findById(element.id)
+  // //     .then(food=>{
+  // //       foodItemsContainer.push(food)
+  // //     })
+  // //     .catch(err=>{
+  // //       console.log(err)
+  // //     })
+      
+  // });
+
+
+  
+  // res.render("../views/inventory",{foodItemsContainer})
+
 
 
 })
