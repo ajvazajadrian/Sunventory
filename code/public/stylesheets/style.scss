@@ -100,10 +100,14 @@ border: 0px;
 
 .fake-input { position: relative; }
 .fake-input input { border: 1px solid #d8d8d8; background:white; display:block;  box-sizing: border-box }
-.fake-input img { position: absolute; top: 90px; right: 5px }
+.fake-input img { position: absolute; top: 95px; right: 5px }
 
 
-
+.registerText{
+  margin-top: 30px;
+  font-size: 0.86rem;
+  font-weight: 300;
+}
 
 @media(max-width: 800px){
   // BlackTopBar
@@ -310,6 +314,10 @@ width: 0;
 
 }
 
+.inputForm{
+  position: relative; 
+width: 35%;
+}
 
 // Header
 
