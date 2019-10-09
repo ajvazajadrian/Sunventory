@@ -60,14 +60,25 @@ body {
   justify-content: center;
 }
 .inputForm{
+  position: relative; 
 width: 70%;
 }
 .input{
-  width: 100%;
+  font-size: 1rem;
+  height: 40px;
+  padding-left: 20px;
   display: block;
   margin-bottom: 3rem;
-  border-radius: 10px;
-  
+  border-radius: 5px;
+  border:1px solid #d8d8d8;
+  border:none; 
+   display:block; 
+   width: 100%; 
+   box-sizing: border-box
+}
+
+.input:focus{
+  outline-color: black;
 }
 
 .buttonBlack{
@@ -80,18 +91,17 @@ border: 0px;
 }
 
 #inputLock img{
-
-   position: absolute; 
-   top: 2000px; 
-   right: 5px;
+  position: absolute; 
+  top: 2px; 
+  right: 5px
 }
 
-#inputLock{
-  margin-top: 110px;
-  margin-right: 10px;
 
 
-}
+.fake-input { position: relative; }
+.fake-input input { border: 1px solid #d8d8d8; background:white; display:block;  box-sizing: border-box }
+.fake-input img { position: absolute; top: 90px; right: 5px }
+
 
 
 
