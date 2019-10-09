@@ -23,25 +23,6 @@ User.findById(req.session.currentUser._id)
 .catch(err=>{
   console.log(err)
 })
-  // // const user = req.session.currentUser;
-  // // const foodItems=user.foodItems
-  // // const foodItemsContainer=[]
-  // // foodItems.forEach(element => {
-  // //     foodItem.findById(element.id)
-  // //     .then(food=>{
-  // //       foodItemsContainer.push(food)
-  // //     })
-  // //     .catch(err=>{
-  // //       console.log(err)
-  // //     })
-      
-  // });
-
-
-  
-  // res.render("../views/inventory",{foodItemsContainer})
-
-
 
 })
 router.get("/create-item",(req,res,next)=>{
