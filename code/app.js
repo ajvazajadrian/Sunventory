@@ -10,7 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const session      = require("express-session")
 const MongoStore   = require("connect-mongo")(session);
-
+const moment=   require("moment")
 mongoose
   .connect('mongodb://localhost/sunventory', {useNewUrlParser: true})
   .then(x => {
@@ -60,7 +60,15 @@ hbs.registerPartials(__dirname + '/views/partials');
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+app.use((req,res,next)=>{
+  if(req.session.currentUser){
+    app.locals.currentUser=req.session.currentUser
+  }else{
+    delete app.locals.currentUser
+  }
 
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -70,5 +78,6 @@ app.use("/",auth);
 
 const main= require("./routes/main")
 app.use("/",main)
+
  
 module.exports = app;
