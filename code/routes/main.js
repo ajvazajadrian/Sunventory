@@ -50,7 +50,6 @@ router.post("/create-item",(req,res,next)=>{
     .then((food)=>{
       User.findByIdAndUpdate(req.session.currentUser._id,{$push:{foodItems:food._id}},{new:true})
       .then((updatedUser)=>{
-        debugger
         console.log(updatedUser)
         res.redirect("/create-item")
       })
@@ -61,12 +60,28 @@ router.post("/create-item",(req,res,next)=>{
   
 })
 
-router.get("/updateItem",(req,res,next)=>{
-  if(req.session.currentUser){
-    res.render("../views/update-product.hbs")
-  }else{
-    res.redirect("/login")
-  }
+router.get("/updateItem/:id",(req,res,next)=>{
+    foodItem.findById(req.params.id)    
+    .then(food=>{
+      res.render("../views/update-item",{food})
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+})
+router.post("/updateItem/:id",(req,res,next)=>{
+  const productName=req.body.productName;
+  const purchaseDate=req.body.dateOfPurchase;
+  const expiryDate=req.body.expiryDate;
+
+  foodItem.findByIdAndUpdate(req.params.id,
+    {name:productName,dateOfPurchase:purchaseDate,expiryDate:expiryDate})
+    .then(()=>{
+      res.redirect("/inventory");
+    })
+    .catch(err=>{
+      console.log(err)
+    })
 })
 
 module.exports=router;

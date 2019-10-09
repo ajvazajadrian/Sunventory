@@ -12,4 +12,3 @@ function openNav() {
 function closeNav() {
   document.getElementsByClassName("overlay")[0].style.width = "0%";
 }
-
