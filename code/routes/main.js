@@ -8,11 +8,17 @@ const User=require("../models/user")
 
 
 router.get("/dash",(req,res,next)=>{
+  if(req.session.currentUser){
   const user = req.session.currentUser;
   res.render("../views/dash",{user});
+  }
+  else{
+    res.redirect("/login");
+  }
 })
 
 router.get("/inventory",(req,res,next)=>{
+  if(req.session.currentUser){
 User.findById(req.session.currentUser._id)
 .populate("foodItems")
 .then(user=>{
@@ -23,10 +29,16 @@ User.findById(req.session.currentUser._id)
 .catch(err=>{
   console.log(err)
 })
-
+  }else{
+    res.redirect("/")
+  }
 })
 router.get("/create-item",(req,res,next)=>{
-  res.render("create-item")
+  if(req.session.currentUser){   
+    res.render("create-item")
+  }else{
+    res.redirect("/login")
+  }
 })
 
 router.post("/create-item",(req,res,next)=>{
@@ -50,7 +62,11 @@ router.post("/create-item",(req,res,next)=>{
 })
 
 router.get("/updateItem",(req,res,next)=>{
+  if(req.session.currentUser){
     res.render("../views/update-product.hbs")
+  }else{
+    res.redirect("/login")
+  }
 })
 
 module.exports=router;
