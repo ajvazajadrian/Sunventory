@@ -7,7 +7,11 @@ const bcryptSalt = 10;
 const User= require("../models/user");
 
 router.get("/signup",(req,res,next)=>{
+  if(!req.session.currentUser){
   res.render("../views/auth/signup.hbs")
+  }else{
+    res.redirect("/dash")
+  }
 })
 
 router.post("/signup",(req,res,next)=>{
@@ -45,8 +49,11 @@ router.post("/signup",(req,res,next)=>{
 })
 
 router.get("/login",(req,res,next)=>{
-  
+  if(!req.session.currentUser){
   res.render("../views/auth/login.hbs")
+  }else{
+    res.redirect("/dash")
+  }
 })
 
 router.post("/login",(req,res,next)=>{
