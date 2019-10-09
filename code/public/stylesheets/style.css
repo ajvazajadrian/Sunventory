@@ -44,7 +44,7 @@ body {
   max-width: 70vw; }
 
 .inputBox {
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center; }
 
@@ -68,13 +68,63 @@ body {
 .input:focus {
   outline-color: black; }
 
-.buttonBlack {
+#buttonBlack {
   font-size: 1rem;
   width: 10rem;
   height: 2.5rem;
   color: white;
-  background: black;
-  border: 0px; }
+  background-color: black;
+  border: 0px;
+  cursor: pointer; }
+
+#redError {
+  font-size: 1rem;
+  width: 10rem;
+  height: 2.5rem;
+  color: white;
+  background-color: #cc0000;
+  border: 0px;
+  cursor: pointer;
+  animation-name: shake;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in; }
+
+#redError:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 1s;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite; }
+
+.errorBox {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.errorText {
+  display: flex;
+  justify-content: center;
+  background: #cc0000;
+  color: white;
+  width: 70%; }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px); }
+  1% {
+    transform: translateX(-3px); }
+  2% {
+    transform: translateX(5px); }
+  3% {
+    transform: translateX(-8px); }
+  4% {
+    transform: translateX(8px); }
+  5% {
+    transform: translateX(-5px); }
+  6% {
+    transform: translateX(3px); }
+  7% {
+    transform: translateX(0px); } }
 
 #inputLock img {
   position: absolute;
@@ -97,7 +147,7 @@ body {
 
 .registerText {
   margin-top: 30px;
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   font-weight: 300; }
 
 @media (max-width: 800px) {
@@ -130,6 +180,16 @@ body {
     transition: 0.5s; }
   #maxSignIn {
     display: none; }
+  #fingerprint {
+    margin-top: 60px;
+    width: 50px;
+    height: 50px; }
+  #signup {
+    margin-top: 20px;
+    width: 400px; }
+  #signupText {
+    font-size: 2rem;
+    font-weight: 500; }
   .overlay-content {
     position: relative;
     top: 25%;
@@ -163,11 +223,11 @@ body {
     font-size: 0.9rem;
     width: 80px;
     height: 25px;
-    border-radius: 4px;
     background-color: black;
     color: white;
     cursor: pointer;
-    right: 0px; } }
+    right: 0px;
+    border: 0px; } }
 
 /* ************** */
 @media (min-width: 801px) {
@@ -187,6 +247,10 @@ body {
     height: 20px;
     padding-right: 10px;
     padding-top: 4px; }
+  #fingerprint {
+    margin-top: 60px;
+    width: 70px;
+    height: 70px; }
   #logoMax {
     width: 80px;
     padding-top: 10px; }
@@ -194,6 +258,12 @@ body {
     display: none; }
   .closebtn {
     display: none; }
+  #signup {
+    margin-top: 20px;
+    width: 400px; }
+  #signupText {
+    font-size: 4rem;
+    font-weight: 500; }
   nav {
     width: 100%;
     display: flex;
@@ -208,10 +278,10 @@ body {
     font-size: 1rem;
     width: 200px;
     height: 30px;
-    border-radius: 4px;
     background-color: black;
     color: white;
-    cursor: pointer; }
+    cursor: pointer;
+    border: 0px; }
   #maxSignIn:focus {
     outline: 0; }
   #minSignIn {

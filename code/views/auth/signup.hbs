@@ -1,4 +1,6 @@
 
+<img id="signup" src="images/food.png">
+<h2 id="signupText">Welcome</h2>
 <div class="inputBox">
 <form class="inputForm" action ="/signup" method="POST">
 <div class="fake-input">
@@ -8,7 +10,7 @@
 </div>
 </div>
 
-<button class="buttonBlack" type ="submit">Sign up</button>
+<button id="buttonBlack" type ="submit">Sign up</button>
 </form>
 
 <h5 class="registerText">Already have an account?  <a href="/login">Log in</a> </h5>
@@ -16,5 +18,15 @@
 
 {{#if errorMessage}}
 <p class="errrorMessage">{{errorMessage}}</p>
-{{/if}}
 
+
+<script>
+
+  let button = document.getElementById('buttonBlack');
+  button.id = "redError";
+
+setTimeout(function(){ 
+  button.id = "buttonBlack"
+   }, 1000)
+</script>
+{{/if}}
