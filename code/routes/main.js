@@ -1,9 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const mongoose= require("mongoose")
-
 const foodItem=require("../models/foodItems");
-
+const moment= require("moment")
 const User=require("../models/user")
 
 
@@ -43,15 +42,15 @@ router.get("/create-item",(req,res,next)=>{
 
 router.post("/create-item",(req,res,next)=>{
     const name=req.body.productName;
-    const dateOfPurchase=req.body.dateOfPurchase;
-    const expiryDate= req.body.expiryDate;
-    
+    const dateOfPurchase= moment(req.body.dateOfPurchase).format('DD-MM-YYYY')
+    const expiryDate= moment(req.body.expiryDate).format('DD-MM-YYYY')
     foodItem.create({name:name,dateOfPurchase:dateOfPurchase, expiryDate:expiryDate})
     .then((food)=>{
+      console.log(food)
       User.findByIdAndUpdate(req.session.currentUser._id,{$push:{foodItems:food._id}},{new:true})
       .then((updatedUser)=>{
         console.log(updatedUser)
-        res.redirect("/create-item")
+        res.redirect("/inventory")
       })
     })
     .catch(err=>{

@@ -12,3 +12,5 @@ function openNav() {
 function closeNav() {
   document.getElementsByClassName("overlay")[0].style.width = "0%";
 }
+
+document.getElementsByClassName("date")[0]

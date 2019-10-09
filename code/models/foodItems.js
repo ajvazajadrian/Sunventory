@@ -6,6 +6,7 @@ const foodItemSchema = new Schema({
     dateOfPurchase:Date,
     expiryDate:Date,
     
+
 })  
 
 const foodItem = mongoose.model("foodItems",foodItemSchema)
